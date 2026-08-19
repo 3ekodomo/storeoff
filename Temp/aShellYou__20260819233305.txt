@@ -1,0 +1,39 @@
+$ cmd package query-services -a android.accessibilityservice.AccessibilityService | grep "ServiceInfo"
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+    ServiceInfo:
+
+$ dumpsys accessibility | grep "ServiceInfo"
+
+$ dumpsys accessibility | grep "ServiceInfo"
+
+$ settings get secure enabled_accessibility_services
+:com.x8bit.bitwarden/.Accessibility.AccessibilityService:com.arlosoft.macrodroid/.triggers.services.MacroDroidAccessibilityServiceJellyBean:com.arlosoft.macrodroid/.action.services.UIInteractionAccessibilityService
+
+$ settings get secure disabled_accessibility_services
+null
+
+$ settings get secure enabled_accessibility_services
+com.arlosoft.macrodroid/com.arlosoft.macrodroid.triggers.services.MacroDroidAccessibilityServiceJellyBean:com.x8bit.bitwarden/com.x8bit.bitwarden.Accessibility.AccessibilityService:com.llamalab.automate/com.llamalab.automate.AutomateAccessibilityService:com.arlosoft.macrodroid/com.arlosoft.macrodroid.action.services.UIInteractionAccessibilityService:eu.darken.sdmse/eu.darken.sdmse.automation.core.AutomationService
+
