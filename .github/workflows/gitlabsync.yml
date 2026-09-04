@@ -1,0 +1,25 @@
+name: Sync to GitLab
+
+on:
+  schedule:
+    - cron: '0 0 */2 * *' # Runs at 00:00 (UTC) every 2nd day
+  workflow_dispatch: # Allows you to run the sync manually
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitHub repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required to fetch all branches and history
+
+      - name: Push code to GitLab
+        env:
+          GITLAB_USERNAME: ${{ secrets.GITLAB_USERNAME }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          GITLAB_URL: ${{ secrets.GITLAB_REPO}} # Repo excluding https://
+        run: |
+          git remote add gitlab https://${GITLAB_USERNAME}:${GITLAB_TOKEN}@${GITLAB_URL}
+          git push gitlab --all --force
+          git push gitlab --tags --force
